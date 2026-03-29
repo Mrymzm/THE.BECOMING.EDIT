@@ -196,7 +196,30 @@
             color: #ffffff;
             border-color: #ffffff;
         }
+/* Discord Section */
+.discord-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
+.discord-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: var(--text-light);
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.discord-container iframe {
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    display: block;
+}
         /* Section Layout */
         section {
             max-width: 1200px;
@@ -538,6 +561,7 @@
                     <li><a href="#articles">Articles</a></li>
                     <li><a href="#newsletter">Newsletter</a></li>
                     <li><a href="#products">Resources</a></li>
+                    <li><a href="#community">Community</a></li>
                 </ul>
             </nav>
         </div>
@@ -549,7 +573,20 @@
         <p>Insights on productivity, personal development, and becoming the best version of yourself. Articles, actionable frameworks, and digital resources all in one place.</p>
         <a href="#newsletter" class="cta-button accent">Join the Newsletter</a>
     </section>
-<iframe src="https://discord.com/widget?id=1452064254634102887&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <!-- Discord Community Section -->
+    <section id="community">
+        <h2 class="section-title">Join the Community</h2>
+        <div class="discord-container">
+             <p class="discord-intro">Connect with fellow conscious creators building intentional lives and businesses.</p>
+             <iframe src="https://discord.com/widget?id=1452064254634102887&theme=light" 
+                     width="350" 
+                     height="500" 
+                     allowtransparency="true" 
+                     frameborder="0" 
+                     sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+             </iframe>
+        </div>
+    </section>
     <!-- Articles Section -->
     <section id="articles">
         <h3>Latest Articles</h3>

@@ -1,820 +1,1083 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Becoming Edit | Dr. Maryam PT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="/THE.BECOMING.EDIT/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/THE.BECOMING.EDIT/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/THE.BECOMING.EDIT/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/THE.BECOMING.EDIT/apple-touch-icon.png">
-<link rel="manifest" href="/THE.BECOMING.EDIT/site.webmanifest">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #000000;
-            --secondary: #ffffff;
-            --accent: #ffffff;
-            --accent-dark: #e0e0e0;
-            --text-light: #cccccc;
-            --border: #333333;
-            --success: #ffffff;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Sohne', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--secondary);
-            background: #000000;
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            padding: 2rem 2rem;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(0, 0, 0, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .logo h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-        }
-
-        .logo p {
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #cccccc;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            font-size: 0.95rem;
-            text-decoration: none;
-            color: #cccccc;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #ffffff;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ffffff;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem 4rem;
-            text-align: left;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h2 {
-            font-family: 'Inter', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: #cccccc;
-            max-width: 600px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            background: #ffffff;
-            color: #000000;
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            border: 2px solid #ffffff;
-            cursor: pointer;
-            font-family: 'Sohne', sans-serif;
-        }
-
-        .cta-button:hover {
-            background: #000000;
-            color: #ffffff;
-        }
-
-        .cta-button.secondary {
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        .cta-button.secondary:hover {
-            background: #ffffff;
-            color: #000000;
-        }
-
-        .cta-button.accent {
-            background: #ffffff;
-            color: #000000;
-            border: 2px solid #ffffff;
-        }
-
-        .cta-button.accent:hover {
-            background: #000000;
-            color: #ffffff;
-            border-color: #ffffff;
-        }
-/* Discord Section - Clean Button Version */
-.discord-container {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.discord-intro {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    color: var(--text-light);
-    font-weight: 300;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.discord-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2.5rem;
-    background: #5865F2;
-    color: white;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-}
-
-.discord-btn:hover {
-    background: #4752C4;
-    transform: translateY(-2px);
-}
-
-.discord-members {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-weight: 300;
-}
-        /* Section Layout */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        section h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            color: #cccccc;
-            font-size: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Articles Grid */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .article-card {
-            background: #111111;
-            border: 1px solid #333333;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .article-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .article-card:hover::before {
-            left: 100%;
-        }
-
-        .article-card:hover {
-            border-color: #ffffff;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
-        }
-
-        .article-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 0.8rem;
-        }
-
-        .article-card h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            line-height: 1.4;
-        }
-
-        .article-card p {
-            color: #cccccc;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #888888;
-            font-size: 0.85rem;
-        }
-
-        .read-more {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .article-card:hover .read-more {
-            color: #cccccc;
-        }
-
-        /* Newsletter Section */
-        .newsletter {
-            background: #111111;
-            border: 1px solid #333333;
-            padding: 4rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .newsletter h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
-        }
-
-        .newsletter p {
-            color: #cccccc;
-            margin-bottom: 2rem;
-            font-size: 1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 0.5rem;
-            max-width: 400px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            min-width: 200px;
-            padding: 0.85rem 1.2rem;
-            border: 2px solid #ffffff;
-            background: #000000;
-            color: #ffffff;
-            font-family: 'Sohne', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .newsletter-form input::placeholder {
-            color: #888888;
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: #cccccc;
-        }
-
-        .newsletter-form button {
-            padding: 0.85rem 2rem;
-            background: #ffffff;
-            color: #000000;
-            border: 2px solid #ffffff;
-            font-family: 'Sohne', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            background: #000000;
-            color: #ffffff;
-            border-color: #ffffff;
-        }
-
-        /* Products Section */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: #111111;
-            border: 2px solid #333333;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: #ffffff;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .product-card:hover {
-            border-color: #ffffff;
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(255, 255, 255, 0.1);
-        }
-
-        .product-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-card h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        .product-card p {
-            color: #cccccc;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .product-price {
-            ffont-family: 'Inter', sans-serif;
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-top: 5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .footer-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--accent);
-            margin: 2rem auto;
-        }
-
-        .footer-text {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-
-            section h3 {
-                font-size: 1.8rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .newsletter {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-form input,
-            .newsletter-form button {
-                width: 100%;
-            }
-
-            header {
-                padding: 1.5rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            nav ul {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PRIMARY SEO -->
+  <title>The Becoming Edit | Nervous System Journal Prompts for Women — Dr. Maryam PT</title>
+  <meta name="description" content="Monthly nervous system journal prompts and weekly essays for women ready to break autopilot patterns and redesign their identity from the inside out. Science-backed. Written by a Doctor of Physical Therapy.">
+  <meta name="keywords" content="nervous system journal prompts for women, intentional living journal prompts, identity transformation women, journal prompts personal growth, nervous system regulation journaling, somatic journal prompts, intentional living for women, personal development for women">
+  <meta name="author" content="Dr. Maryam PT – The Becoming Edit">
+  <link rel="canonical" href="https://mrymzm.github.io/THE.BECOMING.EDIT/">
+
+  <!-- OPEN GRAPH (social sharing) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Becoming Edit | Nervous System Journal Prompts for Women">
+  <meta property="og:description" content="Monthly journal prompt series rooted in nervous system science and identity work. Free newsletter, community, and digital resources for intentional living.">
+  <meta property="og:url" content="https://mrymzm.github.io/THE.BECOMING.EDIT/">
+  <meta property="og:site_name" content="The Becoming Edit">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Becoming Edit | Nervous System Journal Prompts">
+  <meta name="twitter:description" content="Monthly journal prompts rooted in nervous system science. By Dr. Maryam PT.">
+
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/x-icon" href="/THE.BECOMING.EDIT/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/THE.BECOMING.EDIT/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/THE.BECOMING.EDIT/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/THE.BECOMING.EDIT/apple-touch-icon.png">
+  <link rel="manifest" href="/THE.BECOMING.EDIT/site.webmanifest">
+
+  <!-- FONTS: editorial pairing — Cormorant Garamond (display) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "The Becoming Edit",
+    "url": "https://mrymzm.github.io/THE.BECOMING.EDIT/",
+    "description": "Nervous system journal prompts and intentional living resources for women. By Dr. Maryam PT.",
+    "author": {
+      "@type": "Person",
+      "name": "Dr. Maryam PT",
+      "jobTitle": "Doctor of Physical Therapy"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-dark: #111111;
+      --gray-mid: #2e2e2e;
+      --gray-muted: #cccccc;
+      --gray-faint: #888888;
+      --border: #333333;
+      --border-strong: #ffffff;
+      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max: 1140px;
+      --pad: clamp(1.25rem, 4vw, 2rem);
+    }
+
+    /* ── ABOUT / WORK WITH ME ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-eyebrow {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .about-heading {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .about-body {
+      color: var(--gray-muted);
+      font-size: .95rem;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .about-body strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+    .about-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .work-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .work-item {
+      border: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      transition: border-color .3s;
+    }
+    .work-item:hover { border-color: var(--border-strong); }
+    .work-item-label {
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: .6rem;
+      display: block;
+    }
+    .work-item h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: .5rem;
+    }
+    .work-item p {
+      color: var(--gray-muted);
+      font-size: .88rem;
+      line-height: 1.75;
+    }
+    @media (max-width: 720px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-heading { font-size: 2rem; }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.8;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(0,0,0,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: none;
+    }
+
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1.5rem var(--pad);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-block h1 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
+    nav a {
+      font-size: .82rem;
+      letter-spacing: .04em;
+      color: var(--gray-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--white); }
+    .nav-cta {
+      font-size: .82rem;
+      letter-spacing: .04em;
+      padding: .5rem 1.25rem;
+      border: 1px solid var(--border);
+      color: var(--white);
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--white); color: var(--black); }
+
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(5rem,10vw,9rem) var(--pad) clamp(4rem,8vw,7rem);
+    }
+
+    .hero-eyebrow {
+      font-size: .72rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h2 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -3px;
+      max-width: 820px;
+      margin-bottom: 1.75rem;
+    }
+    .hero h2 em { font-style: normal; font-weight: 900; }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .8rem 1.8rem;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid;
+      cursor: pointer;
+      transition: background .25s, color .25s;
+    }
+    .btn-primary { background: var(--white); color: var(--black); border-color: var(--white); }
+    .btn-primary:hover { background: transparent; color: var(--white); }
+    .btn-outline { background: transparent; color: var(--white); border-color: var(--border-strong); }
+    .btn-outline:hover { background: var(--white); color: var(--black); }
+    .btn-ghost {
+      background: transparent; color: var(--gray-muted);
+      border-color: var(--border);
+      padding: .75rem 1.4rem;
+    }
+    .btn-ghost:hover { color: var(--white); border-color: var(--border-strong); }
+    .btn-discord {
+      background: #5865F2; color: #fff; border-color: #5865F2;
+    }
+    .btn-discord:hover { background: #4752c4; border-color: #4752c4; }
+
+    /* ── FEATURED PRODUCT BANNER ── */
+    .featured-banner {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .featured-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3rem var(--pad);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .featured-label {
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .featured-title {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .featured-title em { font-style: normal; }
+    .featured-desc {
+      color: rgba(255,255,255,0.6);
+      font-size: .95rem;
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+    }
+    .featured-visual {
+      background: var(--gray-dark);
+      border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+      padding: 2.5rem;
+    }
+    .featured-icon { font-size: 3.5rem; }
+    .featured-visual-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.8);
+    }
+    .featured-visual-sub {
+      font-size: .8rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+    }
+
+    /* ── SECTION BASE ── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(3rem,6vw,5rem) var(--pad);
+    }
+    .section-rule {
+      border-top: 1px solid var(--border);
+    }
+    .section-header { margin-bottom: 3rem; }
+    .section-header h3 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: .5rem;
+    }
+    .section-header h3 em { font-style: normal; }
+    .section-sub {
+      color: var(--gray-muted);
+      font-size: .9rem;
+      letter-spacing: .05em;
+    }
+
+    /* ── NEWSLETTER BLOCK ── */
+    .newsletter-block {
+      background: var(--gray-dark);
+      border: 1px solid var(--border);
+      padding: clamp(2.5rem, 5vw, 4rem);
+      text-align: center;
+    }
+    .newsletter-block h4 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: .75rem;
+    }
+    .newsletter-block p {
+      color: rgba(255,255,255,0.6);
+      font-size: .95rem;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    /* ── COMMUNITY BLOCK ── */
+    .community-wrap { text-align: center; }
+    .community-wrap h4 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: .75rem;
+    }
+    .community-wrap p {
+      color: rgba(255,255,255,0.6);
+      font-size: .95rem;
+      max-width: 460px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+
+    /* ── PRODUCTS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background: var(--gray-dark);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: border-color .3s, transform .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--white);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .product-card:hover { border-color: var(--border-strong); transform: translateY(-4px); }
+    .product-card:hover::after { transform: scaleX(1); }
+    .product-card .icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .product-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      margin-bottom: .6rem;
+    }
+    .product-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: .9rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── ARTICLES ── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .article-card {
+      background: var(--gray-dark);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      cursor: pointer;
+      transition: border-color .3s, transform .3s;
+    }
+    .article-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+    .article-tag {
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: .75rem;
+      display: block;
+    }
+    .article-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.35;
+      margin-bottom: .7rem;
+    }
+    .article-card p {
+      color: rgba(255,255,255,0.55);
+      font-size: .9rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--gray-muted);
+      font-size: .82rem;
+    }
+    .read-more {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity .2s;
+    }
+    .read-more:hover { opacity: .65; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem var(--pad);
+      text-align: center;
+    }
+    .footer-inner { max-width: var(--max); margin: 0 auto; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .footer-links a {
+      color: var(--gray-muted);
+      text-decoration: none;
+      font-size: .85rem;
+      letter-spacing: .05em;
+      transition: color .25s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: .8rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: .05em;
+    }
+
+    /* ── DIVIDER ── */
+    .divider { width: 40px; height: 1px; background: var(--border-strong); margin: 0 auto 2.5rem; }
+
+    /* ── ARTICLE FILTERS ── */
+    .articles-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .pillar-filters { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .45rem 1rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--gray-muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover { border-color: var(--border-strong); color: var(--white); }
+    .filter-btn.active { background: var(--white); color: var(--black); border-color: var(--white); }
+    .sort-control { display: flex; align-items: center; gap: .5rem; }
+    .sort-label {
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      white-space: nowrap;
+    }
+    .sort-btn {
+      font-family: var(--font-body);
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .45rem 1rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--gray-muted);
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .sort-btn:hover, .sort-btn.active { border-color: var(--border-strong); color: var(--white); }
+    .article-card[data-hidden="true"] { display: none; }
+
+    /* ── COMMUNITY CHANNELS ── */
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin: 2.5rem auto;
+      max-width: 860px;
+    }
+    .channel-card {
+      background: var(--gray-dark);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      transition: border-color .25s;
+    }
+    .channel-card:hover { border-color: var(--border-strong); }
+    .channel-hash { font-size: .9rem; color: var(--gray-muted); margin-bottom: .35rem; }
+    .channel-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      display: block;
+      margin-bottom: .3rem;
+    }
+    .channel-desc { font-size: .78rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+
+    /* ── PRODUCT FILTER ── */
+    .products-controls { margin-bottom: 2rem; }
+    .product-card[data-hidden="true"] { display: none; }
+    .product-tag {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray-muted);
+      margin-bottom: .6rem;
+      display: block;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .header-inner { flex-direction: column; gap: 1rem; text-align: center; }
+      nav ul { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+      .featured-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .featured-visual { display: none; }
+      .articles-controls { flex-direction: column; gap: .75rem; }
+      .sort-control { align-self: flex-end; }
+      .channels-grid { grid-template-columns: 1fr 1fr; }
+      .newsletter-block { padding: 2.5rem 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .hero-ctas .btn { text-align: center; justify-content: center; }
+      .products-grid { grid-template-columns: 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .pillar-filters { gap: .4rem; }
+      .filter-btn { font-size: .7rem; padding: .4rem .75rem; }
+      .channels-grid { grid-template-columns: 1fr; }
+      nav ul { gap: .75rem; }
+      nav a { font-size: .75rem; }
+      .section { padding: 2.5rem var(--pad); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <h1>The Becoming Edit</h1>
-                <p>Dr. Maryam PT.</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#articles">Articles</a></li>
-                    <li><a href="#newsletter">Newsletter</a></li>
-                    <li><a href="#products">Resources</a></li>
-                    <li><a href="#community">Community</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Transform Your Approach to Growth</h2>
-        <p>Insights on productivity, personal development, and becoming the best version of yourself. Articles, actionable frameworks, and digital resources all in one place.</p>
-        <a href="#newsletter" class="cta-button accent">Recieve one free letter every week</a>
-    </section>
-
-
-<!-- Newsletter Section -->
-    <section id="newsletter">
-        <div class="newsletter">
-            <h4>Join the List</h4>
-            <p>Weekly essays on productivity, personal development, and intentional living delivered to your inbox.</p>
-            <a href="https://substack.com/@thebecomingeditbymaryam" class="cta-button accent">Subscribe on Substack</a>
-        </div>
-    </section>
-
-    <!-- Products/Resources Section -->
-    <section id="products">
-        <h3>Digital Resources</h3>
-        <p class="section-subtitle">Tools and frameworks for your journey</p>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-icon">🕔</div>
-                <h4>The Calm Routine Kit</h4>
-                <p>A simple 3-step productivity system designed to help you reset your routine, organize your week, and actually stick to your plan — without burning out.</p>
-               <!-- <div class="product-price">$0</div> -->
-                <a href="https://thebecomingedit.gumroad.com/l/calmroutinekit" class="cta-button">Learn More</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-icon">♻️</div>
-                <h4>Digital Declutter HQ</h4>
-                <p>a calm, minimal space designed to help you clean your digital life gently. No extreme detoxing, just intentional, 5-minute shifts.</p>
-              <!-- <div class="product-price">$0</div> -->
-                <a href="https://thebecomingedit.gumroad.com/l/DigitalDeclutterHQ" class="cta-button">Learn More</a>
-            </div>
-
-            <div class="product-card">
-                <div class="product-icon">📳</div>
-                <h4>The autopilot reset- January journal prompts</h4>
-                <p>31 prompts for 31 days. life is too short to live on autopilot. so escape the autopilot mode by journaling with these prompts.</p>
-               <!-- <div class="product-price">$0</div> -->
-                <a href="https://www.notion.com/templates/the-autopilot-reset-january-journal-prompts" class="cta-button">Learn More</a>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-icon">🪄</div>
-                <h4>The pattern breaker: February Journal Prompts</h4>
-                <p>28 prompts for 28 days. the version of you in march will be so glad you didn't quit in february.</p>
-               <!-- <div class="product-price">$0</div> -->
-                <a href="https://www.notion.com/templates/the-pattern-breaker-february-journal-prompts" class="cta-button">Learn More</a>
-            </div>
-
-
-<div class="product-card">
-                <div class="product-icon">🩹</div>
-                <h4>The Body Check-In- March Journal Prompts</h4>
-                <p>31 prompts for 31 days. At the end of the month you'll have so much clarity on why your body reacts in certain condition.</p>
-              <!-- <div class="product-price">$0</div> -->
-                <a href="https://www.notion.com/templates/the-body-check-in-31-days-march-journal-prompts" class="cta-button">Learn More</a>
-            </div>
-
-
-<div class="product-card">
-                <div class="product-icon">⚡</div>
-                <h4>The Momentum Shift: April journal prompts</h4>
-                <p>30 prompts for 30 days. you've been building momentum, now let's make it permanent.</p>
-               <!-- <div class="product-price">$0</div> -->
-                <a href="https://www.notion.com/templates/the-momentum-shift-30-april-journal-prompts" class="cta-button">Learn More</a>
-            </div>
-
-<div class="product-card">
-                <div class="product-icon">🕊</div>
-                <h4>May Journal prompts: The Expansion Era</h4>
-                <p> 31 journal prompts for your growing season. Table, calendar, and board views included.</p>
-               <!-- <div class="product-price">$0</div> -->
-                <a href="https://www.notion.com/templates/may-journal-prompts-the-expansion-era" class="cta-button">Learn More</a>
-            </div>
-        </div>
-    </section>
-<!-- Discord Community Section -->
-    <section id="community">
-    <h2 class="section-title">Join the Community</h2>
-    <div class="discord-container">
-        <p class="discord-intro">Connect with fellow conscious creators building intentional lives and businesses.</p>
-        <a href="https://discord.gg/PjD3yXczYW" class="discord-btn" target="_blank">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-            </svg>
-            JOIN THE COMMUNITY
-        </a>
-       <!-- <p class="discord-members">1 Member Online</p> -->
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-block">
+        <h1>The Becoming Edit</h1>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#articles">Essays</a></li>
+          <li><a href="#products">Shop</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="https://substack.com/@thebecomingeditbymaryam" class="nav-cta" target="_blank" rel="noopener">Subscribe</a></li>
+        </ul>
+      </nav>
     </div>
-</section>
-</br>
-    <!-- Articles Section -->
-    <section id="articles">
-        <h3>Latest Articles</h3>
-        <p class="section-subtitle">Curated insights from The Becoming Edit</p>
-        <div class="articles-grid">
-<article class="article-card">
-                <span class="article-tag">Productivity</span>
-                <h4>You Can't Become Someone You're Not Feeding</h4>
-              <p>  How to build practices across your body, mind, creativity, relationships, and finances — and why your nervous system depends on it. </p>
-                <div class="article-meta">
-                    <span>5 min read</span>
-                    <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/you-cant-become-someone-youre-not" class="read-more">Read →</a>
-                </div>
-            </article>
-            <article class="article-card">
-                <span class="article-tag">Productivity</span>
-                <h4>You’re Not Tired. You’re Overstimulated.</h4>
-                <p>the problem, the cause, the fix. </p>
-                <div class="article-meta">
-                    <span>3 min read</span>
-                    <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/youre-not-tired-youre-overstimulated" class="read-more">Read →</a>
-                </div>
-            </article>
-            
-            <article class="article-card">
-                <span class="article-tag">Productivity</span>
-                <h4>How I Beat Procrastination and Built a Creative Routine That Actually Works</h4>
-                <p>How I Beat Procrastination and Built a Creative Routine That Actually Works</p>
-                <div class="article-meta">
-                    <span>5 min read</span>
-                    <a href="https://thebecomingedit.wordpress.com/2025/05/06/how-i-beat-procrastination-and-built-a-creative-routine-that-actually-works" class="read-more">Read →</a>
-                </div>
-            </article>
+  </header>
 
-            <article class="article-card">
-                <span class="article-tag">Personal Development</span>
-                <h4>10 Life-Changing Habits to Transform Your 2025 (For Real This Time)</h4>
-                <p>10 Life-Changing Habits to Transform Your 2025 (For Real This Time)</p>
-                <div class="article-meta">
-                    <span>7 min read</span>
-                    <a href="https://thebecomingedit.wordpress.com/2025/04/28/%f0%9f%8c%9f-10-life-changing-habits-to-transform-your-2025-for-real-this-time/" class="read-more">Read →</a>
-                </div>
-            </article>
-
-            <article class="article-card">
-                <span class="article-tag">Mindset</span>
-                <h4>How to Build Self Confidence: 7 Mindset Shifts That Actually Work</h4>
-                <p>Stop chasing goals and start becoming the person. How shifting your identity transforms your trajectory.</p>
-                <div class="article-meta">
-                    <span>6 min read</span>
-                    <a href="https://thebecomingedit.wordpress.com/2025/04/22/how-to-build-self-confidence-7-mindset-shifts-that-actually-work/" class="read-more">Read →</a>
-                </div>
-            </article>
-
-            <article class="article-card">
-                <span class="article-tag">Wellness</span>
-                <h4>Daily Habits for Self-Improvement: Small Changes, Big Growth</h4>
-                <p>Daily Habits for Self-Improvement: Small Changes, Big Growth</p>
-                <div class="article-meta">
-                    <span>6 min read</span>
-                    <a href="https://thebecomingedit.wordpress.com/2025/04/17/daily-habits-for-self-improvement-small-changes-big-growth/" class="read-more">Read →</a>
-                </div>
-            </article>
-
-            <article class="article-card">
-                <span class="article-tag">Strategy</span>
-                <h4>Your Brain Is Running a Program You Didn't Write</h4>
-                <p>Your Brain Is Running a Program You Didn't Write</p>
-                <div class="article-meta">
-                    <span>5 min read</span>
-                    <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/your-brain-is-running-a-program-you" class="read-more">Read →</a>
-                </div>
-            </article>
-
-            <article class="article-card">
-                <span class="article-tag">Featured</span>
-                <h4>The One Thing Preventing You From Feeling Alive (And How the Rule of Five Fixes It)</h4>
-                <p>The One Thing Preventing You From Feeling Alive (And How the Rule of Five Fixes It)</p>
-                <div class="article-meta">
-                    <span>10 min read</span>
-                    <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/the-one-thing-preventing-you-from?r=5wfmx6&utm_campaign=post&utm_medium=web" class="read-more">Read →</a>
-                </div>
-            </article>
-        </div>
+  <!-- ── HERO ── -->
+  <main>
+    <section class="hero" aria-labelledby="hero-heading">
+      <p class="hero-eyebrow">dr. maryam &nbsp;·&nbsp; dpt</p>
+      <h2 id="hero-heading">
+        You've Outgrown<br>Who You Were.
+      </h2>
+      <p class="hero-sub">
+        Nervous system science and identity work for women who are done living on someone else's program.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://substack.com/@thebecomingeditbymaryam" class="btn btn-primary" target="_blank" rel="noopener">Read the Free Weekly Letter</a>
+      </div>
     </section>
 
-    
-
-
-<br>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://www.threads.com/@the.becoming.edit">Threads</a>
-                <a href="https://www.instagram.com/the.becoming.edit">Instagram</a>
-                <a href="https://substack.com/@thebecomingeditbymaryam">Substack</a>
-                <a href="mailto:thebecomingedit.business@gmail.com">Email</a>
-            </div>
-            <div class="footer-divider"></div>
-            <p class="footer-text">© 2024 The Becoming Edit. All rights reserved.</p>
+    <!-- ── FEATURED PRODUCT (MAY – THE EXPANSION ERA) ── -->
+    <div class="featured-banner" id="featured-product">
+      <div class="featured-inner">
+        <div>
+          <span class="featured-label">May · Latest Release</span>
+          <h2 class="featured-title">The <em>Expansion Era</em></h2>
+          <p class="featured-desc">
+            31 journal prompts for your growing season. Momentum has built — now it's time to stop shrinking back into the version of you that felt safer. Table, calendar, and board views in Notion so you can journal the way your brain actually works.
+          </p>
+          <a href="https://www.notion.com/templates/may-journal-prompts-the-expansion-era" class="btn btn-primary" target="_blank" rel="noopener">Get This Month's Prompts →</a>
         </div>
-    </footer>
+        <div class="featured-visual" aria-hidden="true">
+          <div class="featured-icon">🕊</div>
+          <p class="featured-visual-title">The Expansion Era</p>
+          <p class="featured-visual-sub">May · 31 Journal Prompts</p>
+        </div>
+      </div>
+    </div>
 
-    <script>
-        function handleNewsletter(e) {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            alert(`Thank you for subscribing with ${email}! Check your inbox for a welcome message.`);
-            e.target.reset();
-        }
+    <!-- ── NEWSLETTER ── -->
+    <div class="section-rule">
+      <div class="section" id="newsletter">
+        <div class="newsletter-block">
+          <div class="divider"></div>
+          <h4>The Essay Your Feed Won't Show You.</h4>
+          <p>One letter a week. Identity, nervous system science, and the kind of thinking that actually shifts something in you — not just your morning routine.</p>
+          <a href="https://substack.com/@thebecomingeditbymaryam" class="btn btn-primary" target="_blank" rel="noopener">Join the List →</a>
+        </div>
+      </div>
+    </div>
 
-        // Smooth scroll for nav links
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
+    <!-- ── COMMUNITY ── -->
+    <div class="section-rule">
+      <div class="section" id="community">
+        <div class="community-wrap">
+          <div class="section-header">
+            <h3>The Community</h3>
+            <p class="section-sub">The people worth finding are the ones doing the work in private.</p>
+          </div>
+          <p style="color:rgba(255,255,255,0.6); font-size:.95rem; max-width:520px; margin:0 auto 1rem; line-height:1.9;">
+            Most online spaces reward performance. This one doesn't. The Becoming Edit community on Discord is for women who are genuinely doing the identity work — not just talking about it.
+          </p>
+          <p style="color:rgba(255,255,255,0.5); font-size:.88rem; max-width:520px; margin:0 auto 0; line-height:1.85;">
+            Share your becoming across five dedicated channels — one for each pillar:
+          </p>
+
+          <div class="channels-grid">
+            <div class="channel-card">
+              <p class="channel-hash">#</p>
+              <span class="channel-name">The Mind</span>
+              <p class="channel-desc">Patterns, beliefs, identity shifts — what's rewiring for you.</p>
+            </div>
+            <div class="channel-card">
+              <p class="channel-hash">#</p>
+              <span class="channel-name">The Body</span>
+              <p class="channel-desc">Nervous system, movement, rest — what your body is telling you.</p>
+            </div>
+            <div class="channel-card">
+              <p class="channel-hash">#</p>
+              <span class="channel-name">The Edit</span>
+              <p class="channel-desc">Intentional living, routines, the life you're designing.</p>
+            </div>
+            <div class="channel-card">
+              <p class="channel-hash">#</p>
+              <span class="channel-name">The Creative</span>
+              <p class="channel-desc">Creative work, projects, what you're building or making.</p>
+            </div>
+            <div class="channel-card">
+              <p class="channel-hash">#</p>
+              <span class="channel-name">The Build</span>
+              <p class="channel-desc">Goals, systems, accountability — the work behind the work.</p>
+            </div>
+          </div>
+
+          <a href="https://discord.gg/PjD3yXczYW" class="btn btn-discord" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            Join The Becoming Edit
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PRODUCTS ── -->
+    <div class="section-rule">
+      <div class="section" id="products">
+        <div class="section-header">
+          <h3>Digital Resources</h3>
+          <p class="section-sub">Nervous system journal prompts and intentional living tools — each one built around a specific season of becoming.</p>
+        </div>
+
+        <div class="products-controls">
+          <div class="pillar-filters" role="group" aria-label="Filter resources by type">
+            <button class="filter-btn active" data-product-filter="all">All</button>
+            <button class="filter-btn" data-product-filter="Journal Prompts">Journal Prompts</button>
+            <button class="filter-btn" data-product-filter="Tools">Tools</button>
+          </div>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+
+          <div class="product-card" data-category="Journal Prompts">
+            <span class="product-tag">Journal Prompts · May</span>
+            <div class="icon">🕊</div>
+            <h4>The Expansion Era — May Prompts</h4>
+            <p>31 prompts for your growing season. Momentum has built — now stop shrinking back into the version of you that felt safer. Notion table, calendar &amp; board views.</p>
+            <a href="https://www.notion.com/templates/may-journal-prompts-the-expansion-era" class="btn btn-outline" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+          <div class="product-card" data-category="Journal Prompts">
+            <span class="product-tag">Journal Prompts · April</span>
+            <div class="icon">⚡</div>
+            <h4>The Momentum Shift — April Prompts</h4>
+            <p>30 prompts for 30 days. You've been quietly building — this is the month you stop letting it slip away.</p>
+            <a href="https://www.notion.com/templates/the-momentum-shift-30-april-journal-prompts" class="btn btn-ghost" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+          <div class="product-card" data-category="Journal Prompts">
+            <span class="product-tag">Journal Prompts · March</span>
+            <div class="icon">🩹</div>
+            <h4>The Body Check-In — March Prompts</h4>
+            <p>31 prompts for 31 days. Your body has been signalling things for years. This month, you finally start listening.</p>
+            <a href="https://www.notion.com/templates/the-body-check-in-31-days-march-journal-prompts" class="btn btn-ghost" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+          <div class="product-card" data-category="Journal Prompts">
+            <span class="product-tag">Journal Prompts · February</span>
+            <div class="icon">🪄</div>
+            <h4>The Pattern Breaker — February Prompts</h4>
+            <p>28 prompts for 28 days. The version of you in March will be so glad you didn't quit in February.</p>
+            <a href="https://www.notion.com/templates/the-pattern-breaker-february-journal-prompts" class="btn btn-ghost" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+          <div class="product-card" data-category="Journal Prompts">
+            <span class="product-tag">Journal Prompts · January</span>
+            <div class="icon">📳</div>
+            <h4>The Autopilot Reset — January Prompts</h4>
+            <p>31 prompts for 31 days. Life is too short to live on a program you didn't write. Start here.</p>
+            <a href="https://www.notion.com/templates/the-autopilot-reset-january-journal-prompts" class="btn btn-ghost" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+          <div class="product-card" data-category="Tools">
+            <span class="product-tag">Notion Tool · Routine Reset</span>
+            <div class="icon">🕔</div>
+            <h4>The Calm Routine Kit</h4>
+            <p>A 3-step system for resetting your week without burning out. For the person who keeps restarting on Mondays.</p>
+            <a href="https://thebecomingedit.gumroad.com/l/calmroutinekit" class="btn btn-ghost" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+          <div class="product-card" data-category="Tools">
+            <span class="product-tag">Notion Tool · Digital Declutter</span>
+            <div class="icon">♻️</div>
+            <h4>Digital Declutter HQ</h4>
+            <p>A calm Notion space for clearing your digital life in 5-minute shifts. No extreme detox. Just intentional design.</p>
+            <a href="https://thebecomingedit.gumroad.com/l/DigitalDeclutterHQ" class="btn btn-ghost" target="_blank" rel="noopener">Get It →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ARTICLES ── -->
+    <div class="section-rule">
+      <div class="section" id="articles">
+        <div class="section-header">
+          <h3>Latest Essays</h3>
+          <p class="section-sub">Essays from The Becoming Edit — find what matters to you right now.</p>
+        </div>
+
+        <div class="articles-controls">
+          <div class="pillar-filters" role="group" aria-label="Filter by pillar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="The Mind">The Mind</button>
+            <button class="filter-btn" data-filter="The Body">The Body</button>
+            <button class="filter-btn" data-filter="The Edit">The Edit</button>
+            <button class="filter-btn" data-filter="The Creative">The Creative</button>
+            <button class="filter-btn" data-filter="The Build">The Build</button>
+          </div>
+          <div class="sort-control">
+            <span class="sort-label">Sort:</span>
+            <button class="sort-btn active" id="sort-toggle">Newest First <span id="sort-arrow">↓</span></button>
+          </div>
+        </div>
+
+        <div class="articles-grid" id="articles-grid">
+
+          <article class="article-card" data-pillar="The Edit" data-date="2026-03-13">
+            <span class="article-tag">The Edit</span>
+            <h4>You Can't Become Someone You're Not Feeding</h4>
+            <p>Becoming isn't passive — it requires nourishment across five dimensions. A framework for building practices across your body, mind, creativity, relationships, and finances, and why your nervous system depends on all five.</p>
+            <div class="article-meta">
+              <span>Mar 2026 · 5 min</span>
+              <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/you-cant-become-someone-youre-not" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Body" data-date="2026-03-06">
+            <span class="article-tag">The Body</span>
+            <h4>You're Not Tired. You're Overstimulated.</h4>
+            <p>You put your phone down. Two seconds pass. You pick it up again — not because anything happened. That's not a habit, that's your nervous system stuck in a dopamine loop. Here's the science, and the way out.</p>
+            <div class="article-meta">
+              <span>Mar 2026 · 3 min</span>
+              <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/youre-not-tired-youre-overstimulated" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Edit" data-date="2026-02-27">
+            <span class="article-tag">The Edit</span>
+            <h4>The One Thing Preventing You From Feeling Alive</h4>
+            <p>You crushed your to-do list. You still feel empty. That hollow sensation is gray fatigue — the cost of a life optimised for output and nothing else. The Rule of Five is the framework that fixes it.</p>
+            <div class="article-meta">
+              <span>Feb 2026 · 10 min</span>
+              <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/the-one-thing-preventing-you-from" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Mind" data-date="2026-02-19">
+            <span class="article-tag">The Mind</span>
+            <h4>Your Brain Is Running a Program You Didn't Write</h4>
+            <p>Missing the gym for the fourteenth day isn't a character flaw — it's a design flaw. On habits, hardwiring, and why discipline was never supposed to be the answer to changing your nervous system patterns.</p>
+            <div class="article-meta">
+              <span>Feb 2026 · 5 min</span>
+              <a href="https://open.substack.com/pub/thebecomingeditbymaryam/p/your-brain-is-running-a-program-you" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Creative" data-date="2025-05-05">
+            <span class="article-tag">The Creative</span>
+            <h4>How I Beat Procrastination and Built a Creative Routine That Actually Works</h4>
+            <p>Not willpower. Not a 5am alarm. A gentle system built on tiny habits, cozy rituals, and the kind of momentum that doesn't burn out — how a creative routine finally stuck after years of falling off.</p>
+            <div class="article-meta">
+              <span>May 2025 · 5 min</span>
+              <a href="https://thebecomingedit.wordpress.com/2025/05/06/how-i-beat-procrastination-and-built-a-creative-routine-that-actually-works" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Build" data-date="2025-04-28">
+            <span class="article-tag">The Build</span>
+            <h4>10 Life-Changing Habits to Transform Your Year (For Real This Time)</h4>
+            <p>Small inputs, compounding returns. A practical breakdown of ten habits across productivity, energy, and boundaries — for anyone who's tired of keeping their intentions on a shelf.</p>
+            <div class="article-meta">
+              <span>Apr 2025 · 7 min</span>
+              <a href="https://thebecomingedit.wordpress.com/2025/04/28/%f0%9f%8c%9f-10-life-changing-habits-to-transform-your-2025-for-real-this-time/" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Mind" data-date="2025-04-21">
+            <span class="article-tag">The Mind</span>
+            <h4>How to Build Self-Confidence: 7 Mindset Shifts That Actually Work</h4>
+            <p>Confidence isn't something you magically have — it's something you build through how you think About yourself. Seven identity-level shifts that go deeper than any affirmation ever could.</p>
+            <div class="article-meta">
+              <span>Apr 2025 · 6 min</span>
+              <a href="https://thebecomingedit.wordpress.com/2025/04/22/how-to-build-self-confidence-7-mindset-shifts-that-actually-work/" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+          <article class="article-card" data-pillar="The Edit" data-date="2025-04-17">
+            <span class="article-tag">The Edit</span>
+            <h4>Daily Habits for Self-Improvement: Small Changes, Big Growth</h4>
+            <p>Growth doesn't happen in one dramatic moment. It happens in how you start your mornings, how you show up when things are messy, and how you speak to yourself when no one else is listening.</p>
+            <div class="article-meta">
+              <span>Apr 2025 · 6 min</span>
+              <a href="https://thebecomingedit.wordpress.com/2025/04/17/daily-habits-for-self-improvement-small-changes-big-growth/" class="read-more" target="_blank" rel="noopener">Read →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+    <!-- ── ABOUT + WORK WITH ME ── -->
+    <div class="section-rule">
+      <div class="section" id="about">
+        <div class="about-grid">
+
+          <!-- LEFT: about -->
+          <div>
+            <span class="about-eyebrow">About</span>
+            <h2 class="about-heading">The Becoming Edit Is Built on One Idea.</h2>
+            <p class="about-body">
+              You can't think your way into a different life. <strong>You have to rewire it.</strong>
+            </p>
+            <p class="about-body">
+              I'm Maryam — a Doctor of Physical Therapy who got tired of self-help that ignored the body entirely. The nervous system is where identity actually lives. Your patterns, your defaults, your reactions — they're not character flaws. They're physiology.
+            </p>
+            <p class="about-body">
+              The Becoming Edit is where I break that down. Weekly essays, monthly journal prompts, and a community for women who are done with surface-level advice and ready to do the actual work — from the inside out.
+            </p>
+            <p class="about-body">
+              <strong>8K+ on Threads. Weekly newsletter. Five-pillar journal series.</strong> All built around one question: Who are you actually becoming?
+            </p>
+            <div class="about-ctas">
+              <a href="#newsletter" class="btn btn-primary">Start With the Newsletter</a>
+              <a href="https://www.instagram.com/the.becoming.edit" class="btn btn-outline" target="_blank" rel="noopener">Follow on Instagram</a>
+            </div>
+          </div>
+
+          <!-- RIGHT: work with me -->
+          <div>
+            <span class="about-eyebrow">Work With Me</span>
+            <div class="work-list">
+
+              <div class="work-item">
+                <span class="work-item-label">Monthly · Journal Series</span>
+                <h4>The Journal Prompt Series</h4>
+                <p>A new set of nervous-system-rooted journal prompts every month. Each one is tied to a specific season of becoming — from breaking autopilot patterns to expanding into what's next.</p>
+              </div>
+
+              <div class="work-item">
+                <span class="work-item-label">Weekly · Substack</span>
+                <h4>The Free Newsletter</h4>
+                <p>One essay a week on identity, nervous system science, and intentional living. The kind of thinking that actually shifts something — not just your morning routine.</p>
+              </div>
+
+              <div class="work-item">
+                <span class="work-item-label">Coming Soon</span>
+                <h4>Deeper Work</h4>
+                <p>A space for women who want to go further — 1:1 or in community. If you want to be first to know when this opens, get on the newsletter.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://www.threads.com/@the.becoming.edit" target="_blank" rel="noopener">Threads</a>
+        <a href="https://www.instagram.com/the.becoming.edit" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://substack.com/@thebecomingeditbymaryam" target="_blank" rel="noopener">Substack</a>
+        <a href="https://discord.gg/PjD3yXczYW" target="_blank" rel="noopener">Discord</a>
+        <a href="mailto:thebecomingedit.business@gmail.com">Email</a>
+      </div>
+      <p class="footer-copy">© 2025 The Becoming Edit · Dr. Maryam PT</p>
+    </div>
+  </footer>
+
+  <script>
+    // smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // ── PRODUCT FILTER ──
+    const productGrid = document.getElementById('products-grid');
+    const productFilterBtns = document.querySelectorAll('[data-product-filter]');
+
+    productFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        productFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.productFilter;
+        productGrid.querySelectorAll('.product-card').forEach(c => {
+          c.setAttribute('data-hidden', (f === 'all' || c.dataset.category === f) ? 'false' : 'true');
         });
-    </script>
+      });
+    });
+
+    // ── ARTICLE FILTER + SORT ──
+    const grid = document.getElementById('articles-grid');
+    const filterBtns = document.querySelectorAll('.filter-btn:not([data-product-filter])');
+    const sortBtn = document.getElementById('sort-toggle');
+    const sortArrow = document.getElementById('sort-arrow');
+
+    let currentFilter = 'all';
+    let sortAsc = false;
+
+    function getCards() {
+      return Array.from(grid.querySelectorAll('.article-card'));
+    }
+
+    function applyFilterSort() {
+      let cards = getCards();
+      cards.forEach(c => {
+        const show = currentFilter === 'all' || c.dataset.pillar === currentFilter;
+        c.setAttribute('data-hidden', show ? 'false' : 'true');
+      });
+      const visible = cards.filter(c => c.getAttribute('data-hidden') !== 'true');
+      visible.sort((a, b) => {
+        const da = new Date(a.dataset.date), db = new Date(b.dataset.date);
+        return sortAsc ? da - db : db - da;
+      });
+      const hidden = cards.filter(c => c.getAttribute('data-hidden') === 'true');
+      [...visible, ...hidden].forEach(c => grid.appendChild(c));
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyFilterSort();
+      });
+    });
+
+    sortBtn.addEventListener('click', () => {
+      sortAsc = !sortAsc;
+      sortArrow.textContent = sortAsc ? '↑' : '↓';
+      sortBtn.firstChild.textContent = sortAsc ? 'Oldest First ' : 'Newest First ';
+      applyFilterSort();
+    });
+
+    applyFilterSort();
+  </script>
+
 </body>
 </html>
